@@ -1,0 +1,47 @@
+@if (authService.isAuthenticated()) {
+<header class="navigation glass">
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}"
+            (click)="handleClick()">
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/about"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}"
+            (click)="handleClick()">
+            About us
+          </a>
+        </li>
+      </ul>
+
+      <ul class="user-signout">
+        <li>
+          <span>{{ authService.user()?.username }}</span>
+          <button class="signout-btn" (click)="signout()">
+            Sign out
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+}
+
+<main class="main">
+  <router-outlet />
+</main>
+
+<footer>
+  <div class="container">
+    <p>Footer</p>
+  </div>
+</footer>

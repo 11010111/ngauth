@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-container">
+    <div class="form-wrapper glass">
+      <h1>Sign in</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="handleSubmit($event)">
+        <div class="form-group">
+          <label for="username">
+            <span>Username:</span>
+            <input type="text" id="username" formControlName="username" autocomplete="username"
+              [class.is-invalid]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" />
+            <div class="form-error" [class.is-error]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+              <span>Username musst contain between 3 and 32 letters or numbers.</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            <span>Password:</span>
+            <input type="password" id="password" formControlName="password" autocomplete="current-password"
+              [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" />
+            <div class="form-error" [class.is-error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <span>Password musst contain between 6 and 63 letters or numbers.</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <div class="forgot-wrapper">
+            <a routerLink="/passwd_reset">Forgot password</a>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+        </div>
+
+        <div class="form-group">
+          <div class="signup-wrapper">
+            <span>New to Angular Auth?</span> <a routerLink="/signup">Create an Account</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

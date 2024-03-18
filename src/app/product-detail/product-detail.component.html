@@ -1,0 +1,16 @@
+<div class="product-detail-wrapper">
+  <div class="product-detail">
+    @defer {
+    <div class="product-content">
+      <p>ID: {{ product?.id }}</p>
+      <p>Title: {{ product?.title }}</p>
+      <p>Description: {{ product?.description }}</p>
+    </div>
+    } @placeholder (minimum 500ms) {
+    <div class="product-loading">
+      <span>Loading...</span>
+    </div>
+    }
+    <a routerLink="/" class="back-link">Back</a>
+  </div>
+</div>
